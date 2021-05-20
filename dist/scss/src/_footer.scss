@@ -1,0 +1,12 @@
+
+ @use './variables' as var;
+/*--------------------------------------------------------------
+   Footer
+--------------------------------------------------------------*/
+
+.footer{
+    text-align: center;
+    padding: 1rem;
+    background: var.$primary-color;
+    color: #fff;
+}

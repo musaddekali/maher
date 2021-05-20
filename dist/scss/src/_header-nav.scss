@@ -1,0 +1,174 @@
+@use './variables'as var;
+@use './gloval'as g;
+
+/*--------------------------------------------------------------
+   Menu-btn Toggler
+--------------------------------------------------------------*/
+
+.menu-btn {
+    position: fixed;
+    top: 23px;
+    right: 1rem;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 2;
+
+    &__burger {
+        position: absolute;
+        top: .5rem;
+        width: 28px;
+        height: 3px;
+        background: var.$white;
+        @include g.transition-ease;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            width: 28px;
+            height: 3px;
+            background: var.$white;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            width: 20px;
+            height: 3px;
+            background: var.$white;
+        }
+
+        &.open {
+            transform: rotate(720deg);
+            background: transparent;
+
+            &::before {
+                transform: rotate(45deg) translate(5px, 8px);
+            }
+
+            &::after {
+                width: 28px;
+                transform: rotate(-45deg) translate(3px, -7px);
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+   Header
+--------------------------------------------------------------*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var.$primary-color;
+    background-color: #0d59a5;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+
+    a {
+        color: var.$white;
+        text-decoration: none;
+    }
+
+    .logo {
+        margin-right: auto;
+        padding: 5px 10px 5px 5px;
+        display: flex;
+        align-items: center;
+        background: darken(var.$primary-color, 10%);
+        border-radius: 50px;
+
+        &__img{
+            width: 40px;
+            height: 40px;
+            border: 2px solid var.$white;
+            border-radius: 50%;
+            margin-right: .25rem;
+        }
+
+        h2{
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+    }
+
+
+    .navmenu {
+        position: absolute;
+        background: transparentize(var.$primary-color, .1);
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-100vh);
+        @include g.transition-ease;
+    }
+
+    .open {
+        &.navmenu {
+            transform: translateY(0);
+        }
+    }
+
+    .navmenu__items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li.active > a{
+            color: lighten(var.$primary-color, 30%);
+        }
+
+        a {
+            display: block;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            @include g.transition-ease;
+
+            &:hover{
+                color: lighten(var.$primary-color, 30%);
+                text-decoration: none;
+            }
+        }
+    }
+
+
+    // for desktop
+    @media (min-width: 992px) {
+        .navmenu {
+            position: relative;
+            height: auto;
+            background: transparent;
+            transform: translateY(0);
+
+            &__items {
+                display: flex;
+                list-style: none;
+                padding-left: 0;
+                margin: 0;
+
+                a {
+                    display: inline-block;
+                    padding: 12px 20px;
+                    font-weight: 700;
+                    @include g.transition-ease;
+                    font-size: 1rem;
+
+                    &:hover {
+                        background-color: darken(var.$primary-color, 10%);
+                    }
+                }
+            }
+        }
+    }
+
+}

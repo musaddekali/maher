@@ -1,0 +1,352 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  background: #fff;
+  color: #444;
+  line-height: 1.5;
+}
+
+a {
+  color: #0d59a5;
+  text-decoration: none;
+}
+a:hover {
+  color: #0a4076;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  margin-top: 66px;
+}
+
+section {
+  padding: 60px 0;
+}
+.section__title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  color: #0d59a5;
+}
+.section__title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background: #0d59a5;
+}
+.section__title::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 16px;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0d59a5;
+  border-radius: 50px;
+}
+
+.section-bg {
+  background: #f3f8fa;
+}
+
+/*--------------------------------------------------------------
+   Menu-btn Toggler
+--------------------------------------------------------------*/
+.menu-btn {
+  position: fixed;
+  top: 23px;
+  right: 1rem;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+.menu-btn__burger {
+  position: absolute;
+  top: 0.5rem;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  transition: 0.2s ease-in-out;
+}
+.menu-btn__burger::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+}
+.menu-btn__burger::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 20px;
+  height: 3px;
+  background: #fff;
+}
+.menu-btn__burger.open {
+  transform: rotate(720deg);
+  background: transparent;
+}
+.menu-btn__burger.open::before {
+  transform: rotate(45deg) translate(5px, 8px);
+}
+.menu-btn__burger.open::after {
+  width: 28px;
+  transform: rotate(-45deg) translate(3px, -7px);
+}
+
+/*--------------------------------------------------------------
+   Header
+--------------------------------------------------------------*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0d59a5;
+  background-color: #0d59a5;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+.header a {
+  color: #fff;
+  text-decoration: none;
+}
+.header .logo {
+  margin-right: auto;
+  padding: 5px 10px 5px 5px;
+  display: flex;
+  align-items: center;
+  background: #0a4076;
+  border-radius: 50px;
+}
+.header .logo__img {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  margin-right: 0.25rem;
+}
+.header .logo h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+.header .navmenu {
+  position: absolute;
+  background: rgba(13, 89, 165, 0.9);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100vh);
+  transition: 0.2s ease-in-out;
+}
+.header .open.navmenu {
+  transform: translateY(0);
+}
+.header .navmenu__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.header .navmenu__items li.active > a {
+  color: #5aa6f2;
+}
+.header .navmenu__items a {
+  display: block;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  transition: 0.2s ease-in-out;
+}
+.header .navmenu__items a:hover {
+  color: #5aa6f2;
+  text-decoration: none;
+}
+@media (min-width: 992px) {
+  .header .navmenu {
+    position: relative;
+    height: auto;
+    background: transparent;
+    transform: translateY(0);
+  }
+  .header .navmenu__items {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .header .navmenu__items a {
+    display: inline-block;
+    padding: 12px 20px;
+    font-weight: 700;
+    transition: 0.2s ease-in-out;
+    font-size: 1rem;
+  }
+  .header .navmenu__items a:hover {
+    background-color: #0a4076;
+  }
+}
+
+/*--------------------------------------------------------------
+   Home
+--------------------------------------------------------------*/
+.home {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 30vh;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(../images/home.jpg) center top;
+  background-size: cover;
+}
+.home__name {
+  font-family: monospace;
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  border-bottom: 2px solid #fff;
+}
+.home .social-iocns {
+  display: flex;
+  justify-content: space-evenly;
+}
+.home .social-iocns a {
+  color: #fff;
+  transition: 0.2s ease-in-out;
+}
+.home .social-iocns a:hover {
+  color: #0d59a5;
+}
+
+/*--------------------------------------------------------------
+   Gallery
+--------------------------------------------------------------*/
+.gallery__grid-btns {
+  text-align: center;
+  margin: 1rem 0;
+}
+.gallery__grid-btns button {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+.gallery__grid-btns button:hover {
+  background-color: #ddd;
+}
+.gallery__grid-btns button.active {
+  background-color: #0d59a5;
+  color: white;
+}
+.gallery .row {
+  margin: 0;
+}
+.gallery .col {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.gallery img {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/*--------------------------------------------------------------
+   Our Team
+--------------------------------------------------------------*/
+.team .card {
+  margin-bottom: 20px;
+}
+.team .card .card-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  color: #0d59a5;
+}
+.team .card__social-links {
+  display: flex;
+  justify-content: space-around;
+}
+.team .card__social-links a {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0d59a5;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+.team .card__social-links a:hover {
+  background: #fff;
+  color: #0d59a5;
+}
+
+/*--------------------------------------------------------------
+   Contact
+--------------------------------------------------------------*/
+.contact .card {
+  margin-bottom: 1rem;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  text-align: center;
+}
+.contact .card i {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #0d59a5;
+  border: 1px solid #0d59a5;
+  border-radius: 50%;
+  padding: 10px;
+}
+.contact .card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #666;
+  margin: 0.5rem;
+}
+.contact .card p {
+  font-size: 14px;
+}
+
+/*--------------------------------------------------------------
+   Footer
+--------------------------------------------------------------*/
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: #0d59a5;
+  color: #fff;
+}
+
+/*# sourceMappingURL=app.css.map */
